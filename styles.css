@@ -1157,3 +1157,14 @@ img {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Section Link */
+.section-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.section-link:hover h2 {
+    color: var(--primary-color);
+}
