@@ -750,7 +750,7 @@ img {
 .steps-grid::before {
     content: '';
     position: absolute;
-    top: 312px; /* Position at center of step numbers (280px image + 20px margin + 14px half of 28px number box) */
+    top: 300px; /* Position at top edge of step numbers (280px image + 20px margin) */
     left: -100vw;
     width: calc(100% + 100vw - 50px);
     height: 1px;
@@ -1281,9 +1281,12 @@ img {
 }
 
 h2.desktop-only,
-p.desktop-only,
-a.desktop-only {
+p.desktop-only {
     display: block;
+}
+
+a.desktop-only {
+    display: inline-block;
 }
 
 @media (max-width: 768px) {
