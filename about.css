@@ -13,10 +13,16 @@
     align-items: center;
 }
 
+.intro-content {
+    text-align: center;
+}
+
 .intro-content h1 {
     font-family: var(--font-display);
     font-size: 48px;
     font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
     margin-bottom: 24px;
     color: var(--text-dark);
 }
@@ -50,7 +56,7 @@
 }
 
 .platform-tagline {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: 28px;
     font-weight: 400;
     text-align: center;
@@ -127,10 +133,13 @@
     align-items: center;
 }
 
-.logo-small svg {
-    width: 50px;
-    height: 50px;
+.logo-small {
     margin-bottom: 16px;
+}
+
+.logo-img-small {
+    height: 28px;
+    width: auto;
 }
 
 .welcome-text {
@@ -210,18 +219,19 @@
 .mission-banner {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 80px 20px;
+    padding: 80px 40px;
     text-align: center;
-    margin: 60px 0;
+    margin: 60px 10px;
+    border-radius: 20px;
 }
 
 .mission-banner p {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: 28px;
     font-weight: 400;
     max-width: 900px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 /* For Designers About Section */
@@ -231,9 +241,13 @@
 
 .designers-layout {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 60px;
     align-items: center;
+}
+
+.designers-content {
+    order: -1;
 }
 
 .phone-stack {
@@ -287,6 +301,8 @@
     font-family: var(--font-display);
     font-size: 42px;
     font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -312,6 +328,8 @@
     font-family: var(--font-display);
     font-size: 42px;
     font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -495,9 +513,11 @@
 
 /* About Page - Empowering Partners Section */
 .about-partners {
-    margin-top: 60px;
-    padding-top: 60px;
+    margin: 60px 10px 0;
+    padding: 60px 40px 60px;
     border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .about-partners h2 {

@@ -10,6 +10,8 @@
     font-family: var(--font-display);
     font-size: 48px;
     font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
     text-align: center;
     margin-bottom: 80px;
     color: var(--text-dark);
@@ -31,7 +33,7 @@
     width: 220px;
     height: 280px;
     margin: 0 auto 30px;
-    border-radius: 120px 120px 20px 20px;
+    border-radius: 16px;
     overflow: hidden;
     background: linear-gradient(180deg, #e8f4fc 0%, #d4e8f5 100%);
 }
@@ -73,6 +75,8 @@
     font-family: var(--font-display);
     font-size: 42px;
     font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -106,8 +110,8 @@
     }
 
     .work-with-us {
-        margin: 40px 0;
-        border-radius: 0;
+        margin: 40px 10px;
+        border-radius: 20px;
     }
 
     .work-with-us h2 {
