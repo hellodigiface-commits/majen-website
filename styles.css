@@ -1355,8 +1355,11 @@ img {
     .for-designers .image-collage {
         grid-template-columns: 43fr 57fr;
         grid-template-rows: 1.65fr 1fr;
-        aspect-ratio: auto;
-        min-height: 350px;
+        max-width: 343px;
+        height: 300px;
+        margin: 0 auto;
+        border-radius: 12px;
+        gap: 8px;
     }
 }
 
@@ -1534,14 +1537,15 @@ a.desktop-only {
         display: grid;
         grid-template-columns: 43fr 57fr;
         grid-template-rows: 1.65fr 1fr;
-        gap: 10px;
+        gap: 8px;
+        max-width: 343px;
+        height: 300px;
         margin: 0 auto;
-        aspect-ratio: auto;
-        min-height: 380px;
+        border-radius: 12px;
     }
 
     .for-clients .grid-image {
-        border-radius: 14px;
+        border-radius: 10px;
     }
 
     /* Mobile For Designers layout - images above text */
@@ -1565,14 +1569,15 @@ a.desktop-only {
         display: grid;
         grid-template-columns: 43fr 57fr;
         grid-template-rows: 1.65fr 1fr;
-        gap: 10px;
+        gap: 8px;
+        max-width: 343px;
+        height: 300px;
         margin: 0 auto;
-        aspect-ratio: auto;
-        min-height: 380px;
+        border-radius: 12px;
     }
 
     .for-designers .collage-image {
-        border-radius: 14px;
+        border-radius: 10px;
     }
 
     /* Hide the horizontal line on mobile */
