@@ -1002,6 +1002,11 @@ img {
     line-height: 1.7;
 }
 
+.faq-answer a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 /* CTA Section */
 .cta-section {
     position: relative;
