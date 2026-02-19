@@ -1,0 +1,54 @@
+/* Waitlist Page */
+
+.waitlist-hero {
+    padding: 140px 0 40px;
+    text-align: center;
+}
+
+.waitlist-hero h1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.waitlist-hero p {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.waitlist-form-section {
+    padding: 40px 0 100px;
+}
+
+.waitlist-form-section .form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+.waitlist-form-section .form-wrapper iframe {
+    min-height: 600px;
+}
+
+@media (max-width: 768px) {
+    .waitlist-hero {
+        padding: 120px 0 30px;
+    }
+
+    .waitlist-hero h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .waitlist-hero h1 {
+        font-size: 28px;
+    }
+}
