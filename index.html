@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="preloader" id="preloader"><img src="images/logo-icon.svg" class="preloader-logo" alt=""></div>
     <script src="auth.js"></script>
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg">
-            <div class="hero-placeholder"></div>
+            <video autoplay muted loop playsinline class="hero-bg-video">
+                <source src="images/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
             <h1>Your Hub for<br>African Fashion</h1>
@@ -67,63 +71,22 @@
             <div class="phone-mockups">
                 <div class="phone-mockup">
                     <div class="phone-frame">
-                        <div class="phone-screen placeholder-screen">
-                            <div class="app-header">
-                                <span class="back-arrow">←</span>
-                                <span>Product details</span>
-                                <span class="icons">🔔 ♡</span>
-                            </div>
-                            <div class="product-image-placeholder"></div>
-                            <div class="product-info">
-                                <p class="product-name">Mel Black Structured Dress</p>
-                                <p class="product-price">₦ 72,000</p>
-                            </div>
+                        <div class="phone-screen screenshot">
+                            <img src="images/app-ready-to-wear.jpg" alt="Ready to wear product details" loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="phone-mockup">
                     <div class="phone-frame">
-                        <div class="phone-screen placeholder-screen">
-                            <div class="app-header-alt">
-                                <p>Hi, Mary</p>
-                                <p class="subtitle">Let's Shop!</p>
-                            </div>
-                            <div class="search-bar">🔍 Search</div>
-                            <div class="filter-tags">
-                                <span class="tag active">Brands</span>
-                                <span class="tag">Designers</span>
-                                <span class="tag">Bottoms</span>
-                            </div>
-                            <div class="brands-list">
-                                <p class="list-title">Brands on Majen</p>
-                                <div class="brand-item">Kuwaj</div>
-                                <div class="brand-item">Lani Label</div>
-                                <div class="brand-item">Liz and Co</div>
-                            </div>
+                        <div class="phone-screen screenshot">
+                            <img src="images/app-buyer-home.jpg" alt="Majen buyer home screen" loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="phone-mockup">
                     <div class="phone-frame">
-                        <div class="phone-screen placeholder-screen">
-                            <div class="app-header">
-                                <span class="back-arrow">←</span>
-                                <span>Profile</span>
-                                <span class="icons">✉</span>
-                            </div>
-                            <div class="profile-header">
-                                <div class="avatar-placeholder">SM</div>
-                                <p class="shop-name">Shop Mora</p>
-                                <p class="shop-location">Fashion label in Lagos, Nigeria</p>
-                            </div>
-                            <div class="portfolio-section">
-                                <p class="section-title">Portfolio</p>
-                                <div class="portfolio-grid">
-                                    <div class="portfolio-item"></div>
-                                    <div class="portfolio-item"></div>
-                                    <div class="portfolio-item"></div>
-                                </div>
-                            </div>
+                        <div class="phone-screen screenshot">
+                            <img src="images/app-brand-profile.jpg" alt="Brand profile on Majen" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -146,10 +109,10 @@
             <div class="clients-grid">
                 <div class="clients-images">
                     <div class="image-grid">
-                        <div class="grid-image placeholder-img tall"></div>
-                        <div class="grid-image placeholder-img"></div>
-                        <div class="grid-image placeholder-img"></div>
-                        <div class="grid-image placeholder-img"></div>
+                        <div class="grid-image"><img src="images/clients-grid-1.jpg" alt="Liz & Co shopping experience" loading="lazy"></div>
+                        <div class="grid-image"><img src="images/clients-grid-2.jpg" alt="Majen shipping boxes" loading="lazy"></div>
+                        <div class="grid-image"><img src="images/clients-grid-3.png" alt="Majen branded packaging" loading="lazy"></div>
+                        <div class="grid-image"><img src="images/clients-grid-4.jpg" alt="Yve fashion delivery" loading="lazy" style="object-position: center 20%;"></div>
                     </div>
                 </div>
                 <div class="clients-content">
@@ -172,10 +135,10 @@
                 </div>
                 <div class="designers-images">
                     <div class="image-collage">
-                        <div class="collage-image placeholder-img large"></div>
-                        <div class="collage-image placeholder-img pattern"></div>
-                        <div class="collage-image placeholder-img"></div>
-                        <div class="collage-image placeholder-img"></div>
+                        <div class="collage-image"><img src="images/designers-grid-1.jpg" alt="African fashion designer" loading="lazy"></div>
+                        <div class="collage-image"><img src="images/designers-grid-2.png" alt="African fashion design" loading="lazy" style="object-position: center 20%;"></div>
+                        <div class="collage-image"><img src="images/designers-grid-3.jpg" alt="African fashion" loading="lazy"></div>
+                        <div class="collage-image"><img src="images/designers-grid-4.jpg" alt="African fashion" loading="lazy" style="object-position: center 80%;"></div>
                     </div>
                 </div>
             </div>
@@ -197,7 +160,8 @@
             <h2>How it works</h2>
             <div class="steps-grid">
                 <div class="step">
-                    <div class="step-image placeholder-img">
+                    <div class="step-image">
+                        <img src="images/blog-banner.jpg" alt="Discover and shop African fashion" loading="lazy">
                         <div class="step-overlay">
                             <span class="item-tag">Item 1</span>
                             <span class="item-tag">Item 2</span>
@@ -208,13 +172,16 @@
                     <p>Browse our curated selection of verified African designers. Discover new brands or shop your favorites through the Majen app.</p>
                 </div>
                 <div class="step">
-                    <div class="step-image placeholder-img"></div>
+                    <div class="step-image">
+                        <img src="images/designer-illustration.jpg" alt="Order custom fashion pieces" loading="lazy">
+                    </div>
                     <div class="step-number">2</div>
                     <h3>Order With Ease</h3>
                     <p>Order custom or ready-to-wear pieces with transparent pricing and secure, familiar payment methods.</p>
                 </div>
                 <div class="step">
-                    <div class="step-image placeholder-img">
+                    <div class="step-image">
+                        <img src="images/how-it-works-3.png" alt="Fashion delivery worldwide" loading="lazy">
                         <div class="delivery-badge">Order delivered ✓</div>
                     </div>
                     <div class="step-number">3</div>
@@ -231,19 +198,19 @@
             <a href="team.html" class="section-link"><h2>Inside Majen</h2></a>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-image placeholder-img"></div>
+                    <div class="member-image"><img src="images/ifeoma-headshot.jpg" alt="Ifeoma Azinge" loading="lazy"></div>
                     <p class="member-title">Co-Founder, Chief Executive Officer, & Board Member</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-image placeholder-img"></div>
+                    <div class="member-image"><img src="images/kike-johnson.jpg" alt="Kike Johnson" loading="lazy"></div>
                     <p class="member-title">Board Member</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-image placeholder-img"></div>
+                    <div class="member-image"><img src="images/nadia-headshot.jpg" alt="Nadia Udochi" loading="lazy"></div>
                     <p class="member-title">Co-Founder & Chairman Of The Board</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-image placeholder-img"></div>
+                    <div class="member-image"><img src="images/yvonne-onyanta.jpg" alt="Yvonne Onyanta" loading="lazy"></div>
                     <p class="member-title">Board Member</p>
                 </div>
             </div>
@@ -317,7 +284,8 @@
     <!-- CTA Section -->
     <section id="waitlist" class="cta-section">
         <div class="cta-bg">
-            <div class="cta-placeholder"></div>
+            <img src="images/fashion-photo-23.jpg" alt="African fashion" class="cta-bg-img" loading="lazy">
+            <div class="cta-overlay"></div>
         </div>
         <div class="cta-content">
             <h2>Unlock Early Access</h2>

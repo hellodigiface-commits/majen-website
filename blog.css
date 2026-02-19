@@ -23,6 +23,13 @@
     background: linear-gradient(135deg, #8b7355 0%, #a08060 50%, #6b5a47 100%);
 }
 
+.coming-soon-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .coming-soon-overlay {
     position: absolute;
     top: 0;

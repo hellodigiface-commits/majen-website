@@ -20,3 +20,11 @@ node_modules/
 dist/
 build/
 .vercel
+
+# Source asset folders (not for deployment)
+Majen Website Images/
+Majen Website Images.zip
+Majen Website/
+majenbrandassetsandguidelines/
+majenbrandassetsandguidelines.zip
+images/hero-video-original.mp4

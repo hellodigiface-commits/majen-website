@@ -189,3 +189,17 @@ document.addEventListener('DOMContentLoaded', () => {
         heroContent.classList.add('fade-in-up');
     }
 });
+
+// Preloader removal — wait for all assets to finish loading
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Wait a moment for the spin animation to finish (1.4s) then fade out
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.remove();
+            }, 600);
+        }, 1600);
+    }
+});
