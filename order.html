@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place an Order - Majen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+    <script src="auth.js"></script>
+    <div id="nav-placeholder"></div>
+
+    <!-- Order Hero Section -->
+    <section class="order-hero">
+        <div class="container">
+            <h1>Place an Order</h1>
+            <p>Experience Majen today. Fill out the form below to place your order and our team will guide you through the process.</p>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="order-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <iframe
+                    id="JotFormIFrame-260264713016146"
+                    title="Order Form"
+                    src="https://form.jotform.com/260264713016146"
+                    style="width:100%; border:none;"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <script>
+                    var ifr = document.getElementById("JotFormIFrame-260264713016146");
+                    if (window.location.href && window.location.href.indexOf("?") > -1) {
+                        var get = window.location.href.substr(window.location.href.indexOf("?") + 1);
+                        if (ifr && get.length > 0) {
+                            var src = ifr.src;
+                            src = src.indexOf("?") > -1 ? src + "&" + get : src + "?" + get;
+                            ifr.src = src;
+                        }
+                    }
+                    window.handleIFrameMessage = function(e) {
+                        if (typeof e.data === 'object') { return; }
+                        var args = e.data.split(":");
+                        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+                        if (!iframe) { return; }
+                        switch (args[0]) {
+                            case "scrollIntoView": iframe.scrollIntoView(); break;
+                            case "setHeight": iframe.style.height = args[1] + "px"; break;
+                            case "col498": iframe.style.minHeight = args[1] + "px"; break;
+                            case "reloadPage": window.location.reload(); break;
+                        }
+                    };
+                    if (window.addEventListener) {
+                        window.addEventListener("message", handleIFrameMessage, false);
+                    } else if (window.attachEvent) {
+                        window.attachEvent("onmessage", handleIFrameMessage);
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
