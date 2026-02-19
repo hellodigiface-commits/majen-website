@@ -1,171 +1,187 @@
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+// Initialize all event listeners - called after partials load
+function initApp() {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-    });
-});
-
-// FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-
-    question.addEventListener('click', () => {
-        // Close other open items
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-            }
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
         });
 
-        // Toggle current item
-        item.classList.toggle('active');
-    });
-});
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-
-        if (target) {
-            const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+        // Close mobile menu when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
             });
-        }
+        });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            // Close other open items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active');
+        });
     });
-});
 
-// Navbar background on scroll
-const navbar = document.querySelector('.navbar');
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            if (target) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Navbar background on scroll
+    const navbar = document.querySelector('.navbar');
+
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    }
+
+    // Scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Add scroll-animate class to elements and observe them
+    const animateElements = document.querySelectorAll(
+        '.feature-card, .phone-mockup, .clients-content, .clients-images, ' +
+        '.designers-content, .designers-images, .step, .team-member, .faq-item'
+    );
+
+    animateElements.forEach((el, index) => {
+        el.classList.add('scroll-animate');
+        el.style.transitionDelay = `${index % 4 * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Impact accordion
+    const impactItems = document.querySelectorAll('.impact-accordion-item');
+
+    impactItems.forEach(item => {
+        const question = item.querySelector('.impact-accordion-question');
+        if (!question) return;
+
+        question.addEventListener('click', () => {
+            impactItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            item.classList.toggle('active');
+        });
+    });
+
+    // Add active state to navigation based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navHeight - 100;
+            const sectionHeight = section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Load partials (nav and footer) then initialize
+function loadPartials() {
+    const navPlaceholder = document.getElementById('nav-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+
+    const promises = [];
+
+    if (navPlaceholder) {
+        promises.push(
+            fetch('partials/nav.html')
+                .then(r => r.text())
+                .then(html => { navPlaceholder.innerHTML = html; })
+        );
+    }
+
+    if (footerPlaceholder) {
+        promises.push(
+            fetch('partials/footer.html')
+                .then(r => r.text())
+                .then(html => { footerPlaceholder.innerHTML = html; })
+        );
+    }
+
+    if (promises.length > 0) {
+        Promise.all(promises).then(() => {
+            initApp();
+        });
     } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        // No partials to load, init directly
+        initApp();
     }
-});
-
-// Scroll animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Add scroll-animate class to elements and observe them
-const animateElements = document.querySelectorAll(
-    '.feature-card, .phone-mockup, .clients-content, .clients-images, ' +
-    '.designers-content, .designers-images, .step, .team-member, .faq-item'
-);
-
-animateElements.forEach((el, index) => {
-    el.classList.add('scroll-animate');
-    el.style.transitionDelay = `${index % 4 * 0.1}s`;
-    observer.observe(el);
-});
-
-// Waitlist button click handler (placeholder for future functionality)
-const waitlistButtons = document.querySelectorAll('a[href="#waitlist"], .btn-primary');
-
-waitlistButtons.forEach(button => {
-    if (button.textContent.includes('Waitlist')) {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Scroll to the CTA section
-            const ctaSection = document.getElementById('waitlist');
-            if (ctaSection) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = ctaSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-            // Could trigger a modal or form here in the future
-            console.log('Waitlist button clicked - integrate your waitlist form here');
-        });
-    }
-});
-
-// Partner button click handler (placeholder)
-const partnerButtons = document.querySelectorAll('a[href="#partner"]');
-
-partnerButtons.forEach(button => {
-    if (button.textContent.includes('Partner')) {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const partnerSection = document.getElementById('partner');
-            if (partnerSection) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = partnerSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-            console.log('Partner button clicked - integrate your partner form here');
-        });
-    }
-});
-
-// Add active state to navigation based on scroll position
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    const navHeight = document.querySelector('.navbar').offsetHeight;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - navHeight - 100;
-        const sectionHeight = section.offsetHeight;
-
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
+}
 
 // Page load animation
 document.addEventListener('DOMContentLoaded', () => {
     // Add loaded class to body for any initial animations
     document.body.classList.add('loaded');
+
+    // Load partials then init
+    loadPartials();
 
     // Animate hero content on load
     const heroContent = document.querySelector('.hero-content');
