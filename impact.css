@@ -1,0 +1,117 @@
+/* Impact & Inclusion Page */
+
+.impact-hero {
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+.impact-hero h1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.impact-hero p {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.impact-section {
+    padding: 60px 0 100px;
+}
+
+.impact-section h2 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.41px;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.impact-accordion-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.impact-accordion-item {
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.impact-accordion-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.impact-accordion-question:hover {
+    color: var(--primary-color);
+}
+
+.impact-accordion-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.impact-accordion-item.active .impact-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.impact-accordion-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.impact-accordion-item.active .impact-accordion-answer {
+    max-height: 300px;
+    padding-bottom: 24px;
+}
+
+.impact-accordion-answer p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .impact-hero {
+        padding: 120px 0 40px;
+    }
+
+    .impact-hero h1 {
+        font-size: 36px;
+    }
+
+    .impact-section h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-hero h1 {
+        font-size: 28px;
+    }
+}
