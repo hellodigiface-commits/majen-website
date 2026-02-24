@@ -175,10 +175,42 @@ function loadPartials() {
     }
 }
 
+// Responsive hero video source switching
+function setHeroVideoSource() {
+    const video = document.getElementById('hero-video');
+    if (!video) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const newSrc = isMobile ? 'images/hero-video-mobile.mp4' : 'images/hero-video-desktop.mp4';
+
+    const currentSource = video.querySelector('source');
+    if (currentSource && currentSource.getAttribute('src') === newSrc) return;
+
+    // Remove existing source if any
+    if (currentSource) currentSource.remove();
+
+    const source = document.createElement('source');
+    source.src = newSrc;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.load();
+    video.play();
+}
+
 // Page load animation
 document.addEventListener('DOMContentLoaded', () => {
     // Add loaded class to body for any initial animations
     document.body.classList.add('loaded');
+
+    // Set responsive hero video before loading partials
+    setHeroVideoSource();
+
+    // Debounced resize handler for orientation changes
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setHeroVideoSource, 300);
+    });
 
     // Load partials then init
     loadPartials();
