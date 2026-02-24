@@ -2,64 +2,54 @@
 
 .blog-coming-soon {
     margin-top: 62px;
+    padding: 40px 20px 80px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .coming-soon-hero {
     position: relative;
     width: 100%;
-    height: calc(100vh - 62px);
-    min-height: 500px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .coming-soon-image {
     width: 100%;
-    height: 100%;
-}
-
-.coming-soon-image .image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #8b7355 0%, #a08060 50%, #6b5a47 100%);
 }
 
 .coming-soon-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
 }
 
-.coming-soon-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.4);
+.coming-soon-text {
+    padding: 40px 0 0;
 }
 
-.coming-soon-overlay h1 {
+.coming-soon-text h1 {
     font-family: var(--font-display);
-    font-size: 72px;
+    font-size: 48px;
     font-weight: 400;
     letter-spacing: -0.41px;
     line-height: 1.2;
-    color: var(--white);
-    text-align: center;
+    color: var(--text-dark);
 }
 
 @media (max-width: 768px) {
-    .coming-soon-overlay h1 {
-        font-size: 48px;
+    .blog-coming-soon {
+        padding: 30px 16px 60px;
+    }
+
+    .coming-soon-text h1 {
+        font-size: 36px;
     }
 }
 
 @media (max-width: 480px) {
-    .coming-soon-overlay h1 {
-        font-size: 36px;
+    .coming-soon-text h1 {
+        font-size: 28px;
     }
 }

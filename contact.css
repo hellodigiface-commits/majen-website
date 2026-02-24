@@ -35,11 +35,7 @@
 .form-wrapper {
     max-width: 700px;
     margin: 0 auto;
-    min-height: 800px;
-}
-
-.form-wrapper iframe {
-    min-height: 800px;
+    min-height: 600px;
 }
 
 @media (max-width: 768px) {
@@ -52,10 +48,6 @@
     }
 
     .form-wrapper {
-        min-height: 600px;
-    }
-
-    .form-wrapper iframe {
         min-height: 600px;
     }
 }

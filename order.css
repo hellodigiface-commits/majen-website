@@ -33,10 +33,6 @@
     min-height: 600px;
 }
 
-.order-form-section .form-wrapper iframe {
-    min-height: 600px;
-}
-
 @media (max-width: 768px) {
     .order-hero {
         padding: 120px 0 30px;
