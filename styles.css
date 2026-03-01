@@ -1351,8 +1351,21 @@ img {
     }
 
     .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .team-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .team-member {
+        flex: 0 0 70%;
+        scroll-snap-align: start;
     }
 
     .footer-links {
@@ -1405,7 +1418,11 @@ img {
     }
 
     .team-grid {
-        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .team-member {
+        flex: 0 0 75%;
     }
 
     /* Keep 2x2 dynamic grid on all mobile sizes */
@@ -1649,3 +1666,5 @@ a.desktop-only {
         display: none;
     }
 }
+
+/* Privacy Policy Modal */

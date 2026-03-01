@@ -140,6 +140,7 @@ function initApp() {
             }
         });
     });
+
 }
 
 // Load partials (nav and footer) then initialize
