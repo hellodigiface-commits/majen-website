@@ -267,6 +267,71 @@ function initApp() {
         });
     }
 
+    // Order form handler
+    const orderForm = document.getElementById('order-form');
+    if (orderForm) {
+        // Populate US states dropdown
+        var stateSelect = document.getElementById('order-state');
+        if (stateSelect) {
+            var states = [
+                'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
+                'Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois',
+                'Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts',
+                'Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada',
+                'New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota',
+                'Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina',
+                'South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington',
+                'West Virginia','Wisconsin','Wyoming'
+            ];
+            states.forEach(function(s) {
+                var opt = document.createElement('option');
+                opt.value = s;
+                opt.textContent = s;
+                stateSelect.appendChild(opt);
+            });
+        }
+
+        var orderSubmitBtn = document.getElementById('order-submit-btn');
+        var orderSuccess = document.getElementById('order-success');
+        var orderError = document.getElementById('order-error');
+
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            orderSuccess.style.display = 'none';
+            orderError.style.display = 'none';
+            orderSubmitBtn.disabled = true;
+            orderSubmitBtn.textContent = 'Submitting...';
+
+            var formData = new FormData(orderForm);
+            var data = { access_key: '20f29323-f2b0-4b0a-838b-84c3f761fdf3', subject: 'New Order Request' };
+            formData.forEach(function(value, key) {
+                data[key] = value;
+            });
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(function(response) { return response.json(); })
+                .then(function(result) {
+                    if (result.success) {
+                        orderSuccess.style.display = 'block';
+                        orderForm.reset();
+                    } else {
+                        orderError.style.display = 'block';
+                    }
+                    orderSubmitBtn.disabled = false;
+                    orderSubmitBtn.textContent = 'Submit Order';
+                })
+                .catch(function() {
+                    orderError.style.display = 'block';
+                    orderSubmitBtn.disabled = false;
+                    orderSubmitBtn.textContent = 'Submit Order';
+                });
+        });
+    }
+
 }
 
 // Load partials (nav and footer) then initialize
