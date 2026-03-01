@@ -141,6 +141,132 @@ function initApp() {
         });
     });
 
+    // Waitlist form handler
+    const waitlistForm = document.getElementById('waitlist-form');
+    if (waitlistForm) {
+        const submitBtn = document.getElementById('waitlist-submit-btn');
+        const successMsg = document.getElementById('form-success');
+        const errorMsg = document.getElementById('form-error');
+
+        // Conditional field: show ease of ordering when "Yes" is selected
+        const customClothingRadios = waitlistForm.querySelectorAll('input[name="custom_clothing_africa"]');
+        const easeGroup = document.getElementById('ease-of-ordering-group');
+        customClothingRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                easeGroup.style.display = this.value === 'Yes' ? 'flex' : 'none';
+            });
+        });
+
+        // Range slider value display
+        var rangeInput = document.getElementById('ease_of_ordering');
+        var scaleValue = document.getElementById('scale-value');
+        if (rangeInput && scaleValue) {
+            rangeInput.addEventListener('input', function() {
+                scaleValue.textContent = this.value;
+            });
+        }
+
+        // Form submit via Web3Forms
+        waitlistForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Build JSON payload for Web3Forms
+            var formData = new FormData(waitlistForm);
+            var data = { access_key: '4117fc94-34a3-498d-b2e7-4fb7ff9a411c', subject: 'New Waitlist Signup' };
+
+            formData.forEach(function(value, key) {
+                if (key === 'shopping_habits' || key === 'likes_about_african_brands' || key === 'improvements') return;
+                data[key] = value;
+            });
+
+            // Gather checkbox values into comma-separated strings
+            var checkboxFields = ['shopping_habits', 'likes_about_african_brands', 'improvements'];
+            checkboxFields.forEach(function(field) {
+                var checked = waitlistForm.querySelectorAll('input[name="' + field + '"]:checked');
+                var values = [];
+                checked.forEach(function(cb) { values.push(cb.value); });
+                data[field] = values.join(', ');
+            });
+
+            // If custom clothing is "No", clear ease_of_ordering
+            if (data.custom_clothing_africa !== 'Yes') {
+                data.ease_of_ordering = '';
+            }
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(function(response) { return response.json(); })
+                .then(function(result) {
+                    if (result.success) {
+                        successMsg.style.display = 'block';
+                        waitlistForm.reset();
+                        easeGroup.style.display = 'none';
+                        if (scaleValue) scaleValue.textContent = '5';
+                    } else {
+                        errorMsg.style.display = 'block';
+                    }
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Join the Waitlist';
+                })
+                .catch(function() {
+                    errorMsg.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Join the Waitlist';
+                });
+        });
+    }
+
+    // Contact form handler
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const contactSubmitBtn = document.getElementById('contact-submit-btn');
+        const contactSuccess = document.getElementById('contact-success');
+        const contactError = document.getElementById('contact-error');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            contactSuccess.style.display = 'none';
+            contactError.style.display = 'none';
+            contactSubmitBtn.disabled = true;
+            contactSubmitBtn.textContent = 'Submitting...';
+
+            var formData = new FormData(contactForm);
+            var data = { access_key: 'c031706e-32f2-4053-b530-9646bef72ac5', subject: 'New Contact Form Message' };
+            formData.forEach(function(value, key) {
+                data[key] = value;
+            });
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(function(response) { return response.json(); })
+                .then(function(result) {
+                    if (result.success) {
+                        contactSuccess.style.display = 'block';
+                        contactForm.reset();
+                    } else {
+                        contactError.style.display = 'block';
+                    }
+                    contactSubmitBtn.disabled = false;
+                    contactSubmitBtn.textContent = 'Submit';
+                })
+                .catch(function() {
+                    contactError.style.display = 'block';
+                    contactSubmitBtn.disabled = false;
+                    contactSubmitBtn.textContent = 'Submit';
+                });
+        });
+    }
+
 }
 
 // Load partials (nav and footer) then initialize

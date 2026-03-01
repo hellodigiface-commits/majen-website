@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Waitlist - Majen</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="waitlist.css">
+    <title>Join the Waitlist — Majen</title>
+    <meta name="description" content="Sign up to be first in line when Majen launches. Get early access to African fashion from independent designers.">
+    <meta name="theme-color" content="#1a0089">
+    <link rel="canonical" href="https://www.majenapp.com/waitlist.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/images/logo-icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Join the Waitlist — Majen">
+    <meta property="og:description" content="Sign up to be first in line when Majen launches. Get early access to African fashion from independent designers.">
+    <meta property="og:image" content="https://www.majenapp.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.majenapp.com/waitlist.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majen">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join the Waitlist — Majen">
+    <meta name="twitter:description" content="Sign up to be first in line when Majen launches. Get early access to African fashion from independent designers.">
+    <meta name="twitter:image" content="https://www.majenapp.com/images/og-image.jpg">
+
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="waitlist.css?v=2">
 </head>
 <body>
     <script src="auth.js"></script>
@@ -23,14 +46,164 @@
     <section class="waitlist-form-section">
         <div class="container">
             <div class="form-wrapper">
-                <div data-tf-widget="iwEjNSPF" data-tf-opacity="0" data-tf-inline-on-mobile style="width:100%;height:700px;"></div>
-                <script src="//embed.typeform.com/next/embed.js"></script>
+                <form id="waitlist-form" class="waitlist-form">
+
+                    <!-- Section 1: Personal Info -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">About You</h3>
+                        <div class="form-row two-col">
+                            <div class="form-group">
+                                <label for="first_name">First Name *</label>
+                                <input type="text" id="first_name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name *</label>
+                                <input type="text" id="last_name" name="last_name" required>
+                            </div>
+                        </div>
+                        <div class="form-row two-col">
+                            <div class="form-group">
+                                <label for="age_range">Age Range *</label>
+                                <select id="age_range" name="age_range" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="18-24">18-24</option>
+                                    <option value="25-34">25-34</option>
+                                    <option value="35-44">35-44</option>
+                                    <option value="45-54">45-54</option>
+                                    <option value="55+">55+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Location -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Where are you based?</h3>
+                        <div class="form-row three-col">
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" required>
+                                    <option value="" disabled selected>Select country</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State / Province *</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Shopping Habits -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Your Shopping Habits</h3>
+                        <div class="form-group">
+                            <label>Where do you typically shop for fashion? *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Online retailers"> Online retailers</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="In-store malls/boutiques"> In-store malls/boutiques</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Thrift shops"> Thrift shops</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Social media"> Social media</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Custom tailors"> Custom tailors</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Subscription boxes"> Subscription boxes</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Designer websites"> Designer websites</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="Marketplaces"> Marketplaces</label>
+                                <label class="checkbox-label"><input type="checkbox" name="shopping_habits" value="I rarely shop"> I rarely shop</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: African Fashion -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">African Fashion</h3>
+                        <div class="form-group">
+                            <label>Have you ever ordered custom clothing from Africa? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label"><input type="radio" name="custom_clothing_africa" value="Yes" required> Yes</label>
+                                <label class="radio-label"><input type="radio" name="custom_clothing_africa" value="No"> No</label>
+                            </div>
+                        </div>
+                        <div class="form-group conditional-field" id="ease-of-ordering-group" style="display: none;">
+                            <label for="ease_of_ordering">How easy was the ordering process? (1 = very difficult, 10 = very easy)</label>
+                            <div class="scale-group">
+                                <span class="scale-label">1</span>
+                                <input type="range" id="ease_of_ordering" name="ease_of_ordering" min="1" max="10" value="5" class="scale-input">
+                                <span class="scale-label">10</span>
+                                <span class="scale-value" id="scale-value">5</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="african_brands_shopping">Do you shop from African fashion brands? *</label>
+                            <select id="african_brands_shopping" name="african_brands_shopping" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="Yes, frequently">Yes, frequently</option>
+                                <option value="Yes, a few times">Yes, a few times</option>
+                                <option value="No, but interested">No, but I'm interested</option>
+                                <option value="No, not interested">No, not interested</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>What do you like most about African fashion brands? *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label"><input type="checkbox" name="likes_about_african_brands" value="Unique designs"> Unique designs</label>
+                                <label class="checkbox-label"><input type="checkbox" name="likes_about_african_brands" value="Cultural significance"> Cultural significance</label>
+                                <label class="checkbox-label"><input type="checkbox" name="likes_about_african_brands" value="Quality craftsmanship"> Quality craftsmanship</label>
+                                <label class="checkbox-label"><input type="checkbox" name="likes_about_african_brands" value="Supporting small businesses"> Supporting small businesses</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Improvements -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">What matters most to you?</h3>
+                        <div class="form-group">
+                            <label>What improvements would make ordering African fashion easier? *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Shipping speed"> Shipping speed</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Size guides"> Size guides</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Pricing"> Pricing</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Payment options"> Payment options</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Return policies"> Return policies</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Brand variety"> Brand variety</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Product photos"> Product photos</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Navigation"> Navigation</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Reviews"> Reviews</label>
+                                <label class="checkbox-label"><input type="checkbox" name="improvements" value="Buyer protection"> Buyer protection</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Comments -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="comments">Anything else you'd like to share?</label>
+                            <textarea id="comments" name="comments" rows="4" placeholder="Optional"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="waitlist-submit-btn" id="waitlist-submit-btn">Join the Waitlist</button>
+
+                    <div class="form-message success" id="form-success" style="display: none;">
+                        You're on the list! We'll be in touch soon.
+                    </div>
+                    <div class="form-message error" id="form-error" style="display: none;">
+                        Something went wrong. Please try again.
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
+    <script src="countries.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

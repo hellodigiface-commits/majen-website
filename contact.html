@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Majen</title>
+    <title>Contact Us — Majen</title>
+    <meta name="description" content="Get in touch with the Majen team for media inquiries, partnerships, or general questions.">
+    <meta name="theme-color" content="#1a0089">
+    <link rel="canonical" href="https://www.majenapp.com/contact.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/images/logo-icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Us — Majen">
+    <meta property="og:description" content="Get in touch with the Majen team for media inquiries, partnerships, or general questions.">
+    <meta property="og:image" content="https://www.majenapp.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.majenapp.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majen">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us — Majen">
+    <meta name="twitter:description" content="Get in touch with the Majen team for media inquiries, partnerships, or general questions.">
+    <meta name="twitter:image" content="https://www.majenapp.com/images/og-image.jpg">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="contact.css">
 </head>
@@ -30,7 +53,7 @@
 
                 <!-- Right Column — Form -->
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" action="https://formspree.io/f/xpwzgkrq" method="POST">
+                    <form class="contact-form" id="contact-form">
                         <div class="form-row three-col">
                             <div class="form-group">
                                 <label for="first-name">First Name *</label>
@@ -67,7 +90,13 @@
                                 <textarea id="message" name="message" rows="6" required></textarea>
                             </div>
                         </div>
-                        <button type="submit" class="contact-submit-btn">Submit</button>
+                        <button type="submit" class="contact-submit-btn" id="contact-submit-btn">Submit</button>
+                        <div class="form-message success" id="contact-success" style="display: none;">
+                            Thanks for reaching out! We'll get back to you soon.
+                        </div>
+                        <div class="form-message error" id="contact-error" style="display: none;">
+                            Something went wrong. Please try again.
+                        </div>
                     </form>
                 </div>
             </div>
@@ -76,6 +105,6 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
