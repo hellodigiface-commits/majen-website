@@ -1462,6 +1462,12 @@ img {
     }
 }
 
+@media (min-width: 769px) {
+    .preloader {
+        display: none !important;
+    }
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {

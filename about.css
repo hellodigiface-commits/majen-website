@@ -578,6 +578,18 @@
     margin-bottom: 24px;
 }
 
+.about-partners .tag-label-btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    border-color: #fff;
+}
+
+.about-partners .tag-label-btn:hover {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
 .about-partners h2 {
     font-family: var(--font-body);
     font-size: 28px;
